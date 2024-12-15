@@ -1,0 +1,46 @@
+{
+    "general": {
+        "logging_level": "INFO",
+        "output_directory": "./output",
+        "default_report_format": "json"
+    },
+    "risk_prediction": {
+        "model": {
+            "type": "random_forest",
+            "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 10
+            }
+        },
+        "data": {
+            "historical_incidents_file": "./data/historical_incidents.csv",
+            "target_column": "risk_score",
+            "features": [
+                "asset_type",
+                "incident_type",
+                "severity",
+                "impact",
+                "time_to_detect"
+            ]
+        },
+        "output": {
+            "risk_prioritization_file": "./output/risk_prioritization.json"
+        }
+    },
+    "compliance_automation": {
+        "regulatory_texts_folder": "./data/regulatory_texts/",
+        "output_mappings_file": "./output/compliance_mappings.json"
+    },
+    "control_monitoring": {
+        "drift_detection_threshold": 0.8,
+        "anomaly_detection_model": "autoencoder"
+    },
+    "third_party_risk": {
+        "vendor_data_file": "./data/vendor_assessments.csv",
+        "output_risk_scores_file": "./output/third_party_risk_scores.json"
+    },
+    "audit_optimization": {
+        "evidence_folder": "./data/audit_evidence/",
+        "output_optimized_evidence_file": "./output/audit_optimized.json"
+    }
+}
